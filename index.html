@@ -1,84 +1,88 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магазин Книг</title>
-    <style>
-        body {
-            font-family: 'Georgia', serif;
-            background-color: #f4ede1;
-            color: #3e2723;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #6d4c41;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 24px;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-        }
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .book-card {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        .book-card:hover {
-            transform: translateY(-5px);
-        }
-        .book-title {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .book-price {
-            font-size: 16px;
-            color: #d32f2f;
-            margin-top: 10px;
-        }
-        .download-button {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            margin-top: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            text-align: center;
-            display: block;
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
-    <header>Магазин Книг</header>
-    <div class="container">
-        <div class="books-grid">
-            <div class="book-card">
-                <div class="book-title">Гарри Поттер и философский камень</div>
-                <a class="download-button" href="files/harry_potter.pdf" download>Скачать</a>
-            </div>
-            <div class="book-card">
-                <div class="book-title">Властелин колец: Братство Кольца</div>
-                <a class="download-button" href="files/lord_of_the_rings.pdf" download>Скачать</a>
-            </div>
-            <div class="book-card">
-                <div class="book-title">1984</div>
-                <a class="download-button" href="files/1984.pdf" download>Скачать</a>
-            </div>
-        </div>
-    </div>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Магазин Бытовых Товаров</title>
+		<style>
+			body {
+				font-family: "Arial", sans-serif;
+				background-color: #f8f9fa;
+				color: #333;
+				margin: 0;
+				padding: 0;
+			}
+			header {
+				background-color: #007bff;
+				color: white;
+				text-align: center;
+				padding: 20px;
+				font-size: 24px;
+			}
+			.container {
+				width: 80%;
+				margin: 20px auto;
+			}
+			.products-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 20px;
+			}
+			.product-card {
+				background: white;
+				padding: 15px;
+				border-radius: 8px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s;
+				text-align: center;
+			}
+			.product-card:hover {
+				transform: translateY(-5px);
+			}
+			.product-title {
+				font-size: 18px;
+				font-weight: bold;
+			}
+			.product-price {
+				font-size: 16px;
+				color: #28a745;
+				margin-top: 10px;
+			}
+			.buy-button {
+				background: #dc3545;
+				color: white;
+				border: none;
+				padding: 10px;
+				width: 100%;
+				margin-top: 10px;
+				cursor: pointer;
+				border-radius: 5px;
+				text-align: center;
+				display: block;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<header>Магазин Бытовых Товаров</header>
+		<div class="container">
+			<div class="products-grid">
+				<div class="product-card">
+					<div class="product-title">Электрический чайник</div>
+					<div class="product-price">Цена: 2 500₸</div>
+					<button class="buy-button">Купить</button>
+				</div>
+				<div class="product-card">
+					<div class="product-title">Фен для волос</div>
+					<div class="product-price">Цена: 4 200₸</div>
+					<button class="buy-button">Купить</button>
+				</div>
+				<div class="product-card">
+					<div class="product-title">Утюг с паром</div>
+					<div class="product-price">Цена: 6 000₸</div>
+					<button class="buy-button">Купить</button>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
