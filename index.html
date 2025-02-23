@@ -1,165 +1,84 @@
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Магазин Книг</title>
-		<style>
-			body {
-				font-family: "Georgia", serif;
-				background-color: #f4ede1;
-				color: #3e2723;
-				margin: 0;
-				padding: 0;
-			}
-			header {
-				background-color: #6d4c41;
-				color: white;
-				text-align: center;
-				padding: 20px;
-				font-size: 24px;
-			}
-			.container {
-				width: 80%;
-				margin: 20px auto;
-			}
-			.books-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-				gap: 20px;
-			}
-			.book-card {
-				background: white;
-				padding: 15px;
-				border-radius: 8px;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-				transition: transform 0.3s;
-			}
-			.book-card:hover {
-				transform: translateY(-5px);
-			}
-			.book-title {
-				font-size: 18px;
-				font-weight: bold;
-			}
-			.book-price {
-				font-size: 16px;
-				color: #d32f2f;
-				margin-top: 10px;
-			}
-			.buy-button {
-				background: #8d6e63;
-				color: white;
-				border: none;
-				padding: 10px;
-				width: 100%;
-				margin-top: 10px;
-				cursor: pointer;
-				border-radius: 5px;
-			}
-			.cart {
-				margin-top: 20px;
-				padding: 20px;
-				background: white;
-				border-radius: 8px;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			}
-			.checkout-form {
-				display: none;
-				margin-top: 20px;
-				padding: 20px;
-				background: white;
-				border-radius: 8px;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			}
-			.confirmation-message {
-				display: none;
-				margin-top: 20px;
-				padding: 20px;
-				background: white;
-				border-radius: 8px;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-				text-align: center;
-				font-size: 18px;
-				font-weight: bold;
-				color: green;
-			}
-		</style>
-		<script>
-			let cart = [];
-
-			function addToCart(title, price) {
-				cart.push({ title, price });
-				updateCart();
-			}
-
-			function updateCart() {
-				let cartList = document.getElementById("cart-items");
-				let cartTotal = document.getElementById("cart-total");
-				cartList.innerHTML = "";
-				let total = 0;
-
-				cart.forEach((item, index) => {
-					let li = document.createElement("li");
-					li.innerHTML = `${item.title} - ${item.price}₸ <button onclick="removeFromCart(${index})">❌</button>`;
-					cartList.appendChild(li);
-					total += parseInt(item.price);
-				});
-
-				cartTotal.innerText = `Общая сумма: ${total}₸`;
-			}
-
-			function removeFromCart(index) {
-				cart.splice(index, 1);
-				updateCart();
-			}
-
-			function showCheckout() {
-				document.getElementById("checkout-form").style.display = "block";
-			}
-
-			function confirmOrder() {
-				document.getElementById("checkout-form").style.display = "none";
-				document.getElementById("confirmation-message").style.display = "block";
-				document.getElementById("confirmation-message").innerText =
-					"Спасибо за ваш заказ! Мы свяжемся с вами в ближайшее время.";
-			}
-		</script>
-	</head>
-	<body>
-		<header>Магазин Книг</header>
-		<div class="container">
-			<div class="books-grid">
-				<div class="book-card" data-title="Гарри Поттер и философский камень" data-price="1500">
-					<div class="book-title">Гарри Поттер и философский камень</div>
-					<div class="book-price">1500₸</div>
-					<button class="buy-button" onclick="addToCart('Гарри Поттер и философский камень', 1500)">В корзину</button>
-				</div>
-				<div class="book-card" data-title="Властелин колец: Братство Кольца" data-price="1800">
-					<div class="book-title">Властелин колец: Братство Кольца</div>
-					<div class="book-price">1800₸</div>
-					<button class="buy-button" onclick="addToCart('Властелин колец: Братство Кольца', 1800)">В корзину</button>
-				</div>
-				<div class="book-card" data-title="1984" data-price="1200">
-					<div class="book-title">1984</div>
-					<div class="book-price">1200₸</div>
-					<button class="buy-button" onclick="addToCart('1984', 1200)">В корзину</button>
-				</div>
-			</div>
-			<div class="cart">
-				<h2>Корзина</h2>
-				<ul id="cart-items"></ul>
-				<div id="cart-total">Общая сумма: 0₸</div>
-				<button class="checkout-button" onclick="showCheckout()">Оформить заказ</button>
-			</div>
-			<div id="checkout-form" class="checkout-form">
-				<h2>Оформление заказа</h2>
-				<label>Имя: <input type="text" /></label><br />
-				<label>Email: <input type="email" /></label><br />
-				<label>Телефон: <input type="tel" /></label><br />
-				<button class="checkout-button" onclick="confirmOrder()">Подтвердить заказ</button>
-			</div>
-			<div id="confirmation-message" class="confirmation-message"></div>
-		</div>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин Книг</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f4ede1;
+            color: #3e2723;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #6d4c41;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .book-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+        .book-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .book-price {
+            font-size: 16px;
+            color: #d32f2f;
+            margin-top: 10px;
+        }
+        .download-button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>Магазин Книг</header>
+    <div class="container">
+        <div class="books-grid">
+            <div class="book-card">
+                <div class="book-title">Гарри Поттер и философский камень</div>
+                <a class="download-button" href="files/harry_potter.pdf" download>Скачать</a>
+            </div>
+            <div class="book-card">
+                <div class="book-title">Властелин колец: Братство Кольца</div>
+                <a class="download-button" href="files/lord_of_the_rings.pdf" download>Скачать</a>
+            </div>
+            <div class="book-card">
+                <div class="book-title">1984</div>
+                <a class="download-button" href="files/1984.pdf" download>Скачать</a>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
